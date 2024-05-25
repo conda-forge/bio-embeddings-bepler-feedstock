@@ -11,12 +11,13 @@ source:
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 3
+  number: 4
   skip: true  # [win]
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
   host:
     - cython
     - numpy
@@ -24,7 +25,6 @@ requirements:
     - python
   run:
     - python
-    - {{ pin_compatible('numpy') }}
     - pytorch
 
 test:
